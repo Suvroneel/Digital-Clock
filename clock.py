@@ -10,11 +10,12 @@ def clock():
     m=str(time.strftime("%M"))
     s=str(time.strftime("%S"))
     #print(h,m,s)
+    
+    if int(h)>12 and int(m)>0:
+        lbl_noon.config(text="PM")
+        
     if int(h)>12:
         h=str((int(h)-12))
-    if int(h)>=12 and int(m)>0:
-        lbl_noon.config(text="PM")
-
 
     lbl_hr.config(text=h)
     lbl_min.config(text=m)
@@ -47,4 +48,6 @@ lbl_noon2=Label(root,text="Noon",font=("EB Garamond",35,"bold"),bg="#59ff00",fg=
 lbl_noon2.place(x=850,y=420,width=200,height=80)
 clock()
 root.mainloop()
+
+
 

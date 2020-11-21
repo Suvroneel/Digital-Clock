@@ -1,10 +1,14 @@
-from tkinter import*
+from tkinter import *
 import time
-root=Tk()
-root.title("DIGITAL CLOCK")
-root.geometry("1350x700+0+0")
-root.config(bg="#081923")
+from PIL import ImageTk,Image
 
+root=Tk()
+
+canvas=Canvas(root,width=1350,height=700)
+image=ImageTk.PhotoImage(Image.open("C:\youtube\\clock.png"))
+
+canvas.create_image(0,0,anchor=NW,image=image)
+canvas.pack()
 def clock():
     h=str(time.strftime("%H"))
     m=str(time.strftime("%M"))
